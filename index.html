@@ -68,7 +68,11 @@
                 word = text
                 document.getElementById("display").innerHTML = null
                 for (const i in word) {
-                    document.getElementById("display").innerHTML += `<h1 style="display: inline-block;">${word[i]}</h1>`;
+                    if (word[i] === " ") {
+                        document.getElementById("display").innerHTML += "<h1 style='display: inline-block;''>&nbsp;</h1>"
+                    } else {
+                        document.getElementById("display").innerHTML += `<h1 style="display: inline-block;">${word[i]}</h1>`;
+                    }
                 }
                 if (word.length === 0) {
                     document.getElementById("display").innerHTML = "<h1>&nbsp;</h1>"
@@ -99,7 +103,8 @@
         </script>
         <div class="container">
             <input type="text" value="Gradient!" oninput="
-                update_word(this.value)
+                update_word(this.value);
+                update_result();
             ">
             <input type="color" id="start_picker" oninput="
                 start = rgb(this.value);
