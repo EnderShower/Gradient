@@ -90,7 +90,7 @@
                     const startIndex = color.indexOf("(") + 1
                     const endIndex1 = color.indexOf(",")
                     const endIndex2 = color.indexOf(",", endIndex1 + 1)
-                    Body += element.textContent + document.getElementById("middle").value +
+                    Body += element.textContent.replace(" "/*<<&nbsp;*/, " ") + document.getElementById("middle").value +
                     hex([
                     parseInt(color.substring(startIndex, endIndex1)),
                     parseInt(color.substring(endIndex1 + 2, endIndex2)),
